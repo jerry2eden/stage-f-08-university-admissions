@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>University-Admission</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for("static",filename="css/style.css")}}">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <img class="wave" src="{{url_for("static",filename="img/bckgrd.png")}}">
+  <div class="container">
+    <div class="img">
+      <form action="{{ url_for('prediction')}}"><button type="submit" class="btn">Predict My Score</button></form>
+    </div>
+
+     <div class="container-fluid mt-7">
+            <div class="row mb-6">
+                <section class="col-lg-6 mb-lg-0 mb-5">
+                  <div id="vizContainer"></div>
+                  <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+                  <script>
+                    var viz
+                    function initViz() {
+                      var containerDiv = document.getElementById("vizContainer"),
+                      url = "https://public.tableau.com/shared/GQJCS38DS?:display_count=y&:origin=viz_share_link";
+                
+                      viz = new tableau.Viz(containerDiv, url);
+                    }
+                    initViz();
+                  </script>
+                </section>
+            </div>
+    </div>
+
+</body>
+
+</html>
