@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>University-Admission</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for("static",filename="css/style.css")}}">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <img class="wave" src="{{url_for("static",filename="img/bckgrd.png")}}">
+  <div class="container">
+     <div class="row mb-6">
+            <section class="col-lg-6 mb-lg-0 mb-5">
+                <div id="vizContainer"></div>
+                <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+                <script>
+                  var viz
+                  function initViz() {
+                    var containerDiv = document.getElementById("vizContainer"),
+                    url = "https://public.tableau.com/shared/GQJCS38DS?:display_count=y&:origin=viz_share_link";
+              
+                    viz = new tableau.Viz(containerDiv, url);
+                  }
+                  initViz();
+                </script>
+              </section>
+        </div>
+        <!-- Services -->
+        <div class="row mb-7">
+            <div class="col-lg-4 col-md-6">
+                <h2 class="tm-title-gray mb-4">About the Project</h2>
+                <hr class="mb-5 tm-hr">
+                <div>
+                    <p class="tm-strategy-text">The constant pursuit of a foreign education causes graduates all around the globe to apply for a master’s program in foreign universities. This process is not only challenging but also uncertain as most prospective students do not understand the conditions surrounding their chances of getting admitted into their choice schools.</p>
+                    <p>From the EDA carried out on the dataset, a heatmap reveals that the feature parameters having the highest correlation to Chance of Admit (the target variable) are: CGPA, GRE Score, TOEFL Score, Research and University Rating.</p>
+                    <p>Of these 5 variables, we know that the student can influence the CGPA, GRE, TOEFL and Research scores. However, the University Rating poses a different problem as it is difficult to explicitly ascertain the rating of a school for each academic year, as information as to how the ranking was obtained was not documented within the dataset. For this ambiguity, we have decided to train our model on the 4 key features that every student can actually influence, and with that try to predict the chance of admittance of the student.</p>
+                    
+                    <p>Having conclusively developed a model that best suits the dataset and task at hand, we designed a web-based interface to enable end-users to interact with the model without actually worrying about all the specifics.</p>
+                    <p>To Access our Model please click on the link below.</p>
+                </div>
+            </div>
+             <div class="col-lg-4 col-md-6">
+                <div class="tm-bg-gray tm-box">
+                    <form action="{{ url_for('prediction')}}"><button type="submit" class="btn">Predict My Score</button></form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

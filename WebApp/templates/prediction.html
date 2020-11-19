@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>University-Admission</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for("static",filename="css/style.css")}}">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <img class="wave" src="{{url_for("static",filename="img/bckgrd.png")}}">
+  <div class="container">
+    <div class="img">
+      <img src="{{url_for("static",filename="img/std.png")}}">
+    </div>
+    
+     
+    <div class="login-content">
+      <form action="{{ url_for("predict")}}" method="POST">
+        <img src="{{url_for("static",filename="img/avatar.svg")}}">
+        <div class="container-pro"></div>
+              <div class="input-div one">
+                 <div class="i">
+                    <i class="fas fa-user"></i>
+                 </div>
+                 <div class="div">
+                    <input type="number"  name="GRE" placeholder="GRE" id="gre" class="input" max="340" required=required>
+                 </div>
+              </div>
+              <div class="input-div pass">
+                 <div class="i"> 
+                    <i class="fas fa-lock"></i>
+                 </div>
+                 <div class="div">
+                    <input type="number" name="TOEFL" placeholder="TOEFL" class="input" id="toelf" max="120" required=required>
+                 </div>
+              </div>
+              <div class="input-div pass">
+                 <div class="i"> 
+                    <i class="fas fa-lock"></i>
+                 </div>
+                 <div class="div">
+                    <input type="decimal" name="CGPA" placeholder="CGPA" class="input" id="cgpa" max="10" required=required>
+                 </div>
+              </div>
+              <div class="input-div pass">
+                 <div class="i"> 
+                    <i class="fas fa-lock"></i>
+                 </div>
+                 <div class="div">
+                    <input type="number" name="Research" placeholder="Research" class="input" id="research" max="1" required=required>
+                 </div>
+              </div>
+             
+              <input type="submit" class="btn" value="PREDICT VALUE">
+              <p style="position: absolute;bottom: -5%;left: 50%;transform: translate(-50% , 50%); margin-top: 20px; "> {{ prediction_text}}</p>
+            </form>
+
+        </div>
+    </div>
+
+
+</body>
+</html>
